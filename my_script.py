@@ -44,6 +44,21 @@ def read_food_sales():
             f.write(date)
             f.write('\n')
 
+def read_region():
+    all_regions = []
+    with open('sampledatafoodsales.csv') as f:
+        data = f.readlines()
+
+        for food_sale in data:
+            split_food_sale = food_sale.split(',')
+            order_region = split_food_sale[1]
+            all_regions.append(order_region)
+    print(all_regions)
+
+    with open('regions.txt', 'a') as f:
+        for region in all_regions:
+            f.write(region)
+
 def append_text():
     '''Append data to an existing file'''
     with open('dates.txt', 'a') as f:
